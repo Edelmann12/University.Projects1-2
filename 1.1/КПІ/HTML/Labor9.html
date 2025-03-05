@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знак</title>
+</head>
+<body>
+<canvas id="signCanvas" width="300" height="300"></canvas>
+
+<script>
+    const canvas = document.getElementById('signCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Малювання трикутника з круглими краями і товщою рамкою
+    function drawTriangle() {
+        ctx.beginPath();
+        ctx.moveTo(150, 20); // Верхівка трикутника
+        ctx.lineTo(30, 260); // Лівий кут
+        ctx.lineTo(270, 260); // Правий кут
+        ctx.closePath();
+
+        // Налаштування для округлення кутів
+        ctx.lineJoin = "round"; // Круглі краї
+
+        // Червона товста рамка
+        ctx.lineWidth = 25; // Збільшена товщина обводки
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+
+        // Заливка трикутника
+        ctx.fillStyle = 'white';
+        ctx.fill();
+    }
+
+    // Малювання "ікса", зменшеного в півтора рази, із більш товстими лініями
+    function drawCross() {
+        const scaleFactor = 0.67; // Масштаб для зменшення у півтора рази
+        const centerX = 150; // Центр трикутника
+        const centerY = 150;
+
+        const crossSize = 60; // Відстань від центру до країв хреста
+
+        ctx.lineWidth = 12; // Збільшена товщина ліній хреста
+        ctx.strokeStyle = 'black';
+
+        // Перша діагональ
+        ctx.beginPath();
+        ctx.moveTo(centerX - crossSize * scaleFactor, centerY - crossSize * scaleFactor); // Верхній лівий кут
+        ctx.lineTo(centerX + crossSize * scaleFactor, centerY + crossSize * scaleFactor); // Нижній правий кут
+        ctx.stroke();
+
+        // Друга діагональ
+        ctx.beginPath();
+        ctx.moveTo(centerX + crossSize * scaleFactor, centerY - crossSize * scaleFactor); // Верхній правий кут
+        ctx.lineTo(centerX - crossSize * scaleFactor, centerY + crossSize * scaleFactor); // Нижній лівий кут
+        ctx.stroke();
+    }
+
+    // Малюємо знак
+    drawTriangle();
+    drawCross();
+</script>
+</body>
+</html>

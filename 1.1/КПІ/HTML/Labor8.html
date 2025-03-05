@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>варіант 11</title>
+    <script type="text/javascript">
+        let x1 = parseInt(prompt('Введіть змінну х1'));
+        let x2 = parseInt(prompt('Введіть змінну x2'));
+        let y1 = 5 - x1 ;
+        let y2 = (14 - x2) / 2;
+        alert("y1 = " + y1 + "\ny2 = " + y2);
+        let krok = 41 / 5;
+        let x = - 1;
+        while ( x <= 20 )
+        {
+        let y = x - Math.sin(x);
+        if (y < 0) 
+        {
+        y = -y;
+        alert("y = " + y +" з ІІІ-го квадранта у ІІ-ий" )
+        } else 
+        {
+        alert("y = " + y);
+        }
+        x += krok;
+        }
+    </script>
+    </head>
+<body>
+
+</body>
+</html>
